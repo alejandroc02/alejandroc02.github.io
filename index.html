@@ -77,6 +77,7 @@ ul.work li::marker{color:var(--accent)}
 .project h3{font-size:1.05rem;margin:0 0 4px}
 .stack{color:var(--muted);font-size:.93rem;margin:0 0 6px}
 .project p{margin:0;max-width:66ch}
+.project .code{margin-top:10px;font-weight:500}
 .note{color:var(--muted);margin:-16px 0 20px}
 
 dl.skills{display:grid;grid-template-columns:150px 1fr;gap:12px 28px;margin:0}
@@ -170,18 +171,34 @@ footer{padding:40px 0 64px;color:var(--muted);font-size:.9rem}
     <div class="projects">
       <div class="project card sr">
         <h3>Layered Java web application</h3>
-        <p class="stack">Java, Spring Boot, JPA</p>
-        <p>REST backend with a service layer, ORM persistence with entity relationships, JWT authentication, caching, and unit and API tests under CI.</p>
+        <p class="stack">Java, Spring Boot, JPA, Angular</p>
+        <p>REST backend with a service layer, ORM persistence with entity relationships, JWT authentication, caching, and unit and API tests under CI, consumed by an Angular front end.</p>
       </div>
       <div class="project card sr">
         <h3>TypeScript full-stack web application</h3>
-        <p class="stack">TypeScript, Nest.js, TypeORM, React</p>
-        <p>Same layered architecture on a Node.js stack, with JWT authentication, caching and tests under CI.</p>
+        <p class="stack">TypeScript, Nest.js, TypeORM, PostgreSQL, React, Tailwind CSS</p>
+        <p>Marketplace for near-expiry medicines between pharmacies and customers: layered REST API with JWT authentication and a React front end with internationalization and a Workbox service worker, with unit and end-to-end tests under CI (Jenkins, SonarQube).</p>
       </div>
       <div class="project card sr">
         <h3>Fake-news detection</h3>
         <p class="stack">Python, Pandas, scikit-learn</p>
         <p>Text-analytics pipeline comparing three classifiers on precision, recall and F1, exposed through a REST API with prediction and retraining endpoints.</p>
+      </div>
+      <div class="project card sr">
+        <h3>Vaccination coverage data mart</h3>
+        <p class="stack">AWS Glue (PySpark), Amazon S3, Power BI</p>
+        <p>ETL jobs over official vaccination-coverage data in Colombia into a star-schema data mart (date, location, population group and vaccine dimensions), feeding descriptive, inferential-statistics and clinical dashboards built with medical students.</p>
+      </div>
+      <div class="project card sr">
+        <h3>Transactional database application</h3>
+        <p class="stack">SQL, Oracle, MongoDB, Java</p>
+        <p>Data layer for a hotel chain built in three stages: relational model with CRUD operations and analytical SQL queries (revenue per room, occupancy rate, service demand, customer segments), physical design with indexes and transaction control for query and update efficiency, and a document model on MongoDB.</p>
+      </div>
+      <div class="project card sr">
+        <h3>Android space-booking app</h3>
+        <p class="stack">Kotlin, Jetpack Compose, Retrofit, Coroutines, DataStore, Google Maps, Nest.js</p>
+        <p>Native client for a marketplace where students book spaces near campus: map with filters, reviews, bookings and recommendations. JWT persisted in DataStore for offline login, cached spaces and bookings for read-only offline mode, and parallel requests with coroutines.</p>
+        <p class="code"><a href="https://github.com/breakPoint-moviles-G35/breakPoint_kotlin">View code</a></p>
       </div>
     </div>
   </div>
