@@ -1,353 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alejandro Cataño porfolio</title>
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/aos.css">
-    <link rel="stylesheet" href="./assets/css/line-awesome.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alejandro Cataño Cardona · Software Engineer</title>
+<meta name="description" content="Full-stack software engineer in Bogotá, Colombia. C# .NET, Java, TypeScript, REST APIs and workflow automation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%23173A5E'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'>AC</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F5F7; --ink:#14233A; --muted:#5A6778; --rule:#D5DCE4; --accent:#1F5FBF; --surface:#FFFFFF; --hero-bg:#10233F; --hero-ink:#EEF3F9; --hero-muted:#A9B7C9; --hero-link:#8DBBFF;
+  --font:"Schibsted Grotesk",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#0F1826; --ink:#E6ECF3; --muted:#9AA7B8; --rule:#26344A; --accent:#7FB0FF; --surface:#152135; --hero-bg:#0A1628;}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+.hero{position:relative;background:var(--hero-bg);color:var(--hero-ink);padding:120px 0 104px;overflow:hidden;isolation:isolate}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.spot{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(141,187,255,.13),transparent 70%)}
+.hero:hover .spot{opacity:1}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;z-index:-1;background:linear-gradient(to bottom,transparent,var(--hero-bg));pointer-events:none}
+.typed{color:var(--hero-link)}
+.caret{display:inline-block;width:2px;height:1.1em;margin-left:3px;vertical-align:-3px;background:var(--hero-link);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* scroll reveal */
+.sr{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.sr.in{opacity:1;transform:none}
+/* hover */
+.entry{border-radius:12px;margin:0 -16px;padding:16px 16px 20px!important;transition:background-color .25s,transform .25s}
+.entry:hover{background:var(--surface);transform:translateY(-2px)}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 22px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 10px 30px -12px rgba(20,35,58,.35)}
+.hero-grid{max-width:1120px;margin:0 auto;padding:0 24px}
+h1{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0 0 14px}
+.role{min-height:1.6em;font-size:1.35rem;font-weight:500;color:var(--hero-muted);margin:0 0 22px}
+.intro{max-width:56ch;margin:0 0 28px;color:var(--hero-ink)}
+.hero a{color:var(--hero-link)}
+.hero a:focus-visible{outline-color:var(--hero-link)}
+/* load sequence */
+.reveal{opacity:0;transform:translateY(10px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.reveal:nth-child(2){animation-delay:.08s}.reveal:nth-child(3){animation-delay:.16s}.reveal:nth-child(4){animation-delay:.24s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;animation:none}
+  .sr{opacity:1!important;transform:none!important;transition:none!important}
+  #net{display:none}
+  .caret{animation:none}
+  .card,.entry{transition:none!important}
+}
+.links{display:flex;flex-wrap:wrap;gap:10px 22px;padding:0;margin:0;list-style:none;font-weight:500}
+
+section{padding:56px 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+h2{font-size:1.5rem;letter-spacing:-.02em;margin:0 0 28px}
+
+.entry{display:grid;grid-template-columns:150px 1fr;gap:6px 28px;padding:0 0 32px}
+.entry:last-child{padding-bottom:0}
+.when{color:var(--muted);font-size:.92rem;font-variant-numeric:tabular-nums;padding-top:3px}
+.entry h3{font-size:1.08rem;margin:0;line-height:1.35}
+.where{color:var(--muted);margin:2px 0 10px;font-size:.95rem}
+ul.work{margin:0;padding-left:1.1em}
+ul.work li{margin:0 0 6px;max-width:66ch}
+ul.work li::marker{color:var(--accent)}
+
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.project h3{font-size:1.05rem;margin:0 0 4px}
+.stack{color:var(--muted);font-size:.93rem;margin:0 0 6px}
+.project p{margin:0;max-width:66ch}
+.note{color:var(--muted);margin:-16px 0 20px}
+
+dl.skills{display:grid;grid-template-columns:150px 1fr;gap:12px 28px;margin:0}
+dl.skills dt{font-weight:700}
+dl.skills dd{margin:0}
+
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{margin:0 0 10px}
+
+footer{padding:40px 0 64px;color:var(--muted);font-size:.9rem}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .hero{padding:72px 0 64px}
+  .entry,dl.skills{grid-template-columns:1fr;gap:2px}
+  dl.skills dd{margin-bottom:10px}
+}
+</style>
 </head>
-
-<body data-bs-spy="scroll" data-bs-target=".navbar">
-
-        <!-- // content wrapper -->
-
-    <body data-bs-spy="scroll" data-bs-target=".navbar">
-
-        <!-- barra -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top justify-content-end">
-            <div class="container flex-lg-column">
-                <a class="navbar-brand mx-lg-auto mb-lg-4 order-lg-2" href="#">
-                    <span class="h3 fw-bold d-block d-lg-none">Alejandro Cataño</span>
-                    <img src="./assets/images/person.jpg" class="d-none d-lg-block rounded-circle" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
-                    <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
-    
-                        <li class="nav-item">
-                            <a class="nav-link" href="#home">Principal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#Hab">Habilidades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pro">Proyectos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#me">Sobre mi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contactame</a>
-                        </li>
-    
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </body>
-    
-    <!-- //barra -->
-
-    <div id="content-wrapper">
-
-        <!-- home -->
-        <section id="home" class="full-height px-lg-5">
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <h1 class="display-4 fw-bold" data-aos="fade-up">Alejandro Cataño, estudiante de <span class="text-brand">ingenieria
-                                de sistemas</span> de Uniandes</h1>
-                        <p class="lead mt-2 mb-4" data-aos="fade-up" data-aos-delay="300">hola! mi nombre es Alejandro Cataño, soy un apasionado ingeniero 
-                            de sistemas de la Universidad de los Andes, listo para aprender habilidades nuevas que me motiven
-                        </p>
-                        <div data-aos="fade-up" data-aos-delay="600">
-                            <a href="#pro" class="btn btn-brand me-3">Explora mis proyectos</a>
-                            <a href="#" class="link-custom">Telefono: 310 539 6221</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-        <!-- //home -->
-
-        <!-- habilidades -->
-        <section id="Hab" class="full-height px-lg-5">
-            <div class="container">
-
-                <div class="row pb-4" data-aos="fade-up">
-                    <div class="col-lg-8">
-                        <h6 class="text-brand">HABILIDADES</h6>
-                        <h1>Habilidades de alejandro</h1>
-                    </div>
-                </div>
-
-                <div class="row gy-4">
-
-                    <div class="col-md-4" data-aos="fade-up">
-                        <div class="service p-4 bg-base rounded-4 shadow-effect">
-                            <div class="iconbox rounded-4">
-                                <i class="las la-feather"></i>
-                            </div>
-                            <h5 class="mt-4 mb-2">SQL</h5>
-                            <p>Buenas habilidades y herramientas para poder elaborar cualquier proyecto en SQL</p>
-        
-                        </div>
-                    </div>
-
-                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service p-4 bg-base rounded-4 shadow-effect">
-                            <div class="iconbox rounded-4">
-                                <i class="las la-pencil-ruler"></i>
-                            </div>
-                            <h5 class="mt-4 mb-2">Java</h5>
-                            <p> Ejecuccion de programas DPOO y todo lo relacionado a java  </p>
-                          
-                        </div>
-                    </div>
-
-                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service p-4 bg-base rounded-4 shadow-effect">
-                            <div class="iconbox rounded-4">
-                                <i class="las la-laptop-code"></i>
-                            </div>
-                            <h5 class="mt-4 mb-2">Python</h5>
-                            <p>Pandas, Tkinter, y aAmplia experiencia con el lenguaje de programacion</p>
-                        
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-        <!-- habilidades -->
-
-        <!-- pro -->
-        <section id="pro" class="full-height px-lg-5">
-            <div class="container">
-
-                <div class="row pb-4" data-aos="fade-up">
-                    <div class="col-lg-8">
-                        <h6 class="text-brand">Proyectos</h6>
-                        <h1>Mis proyectos recientes</h1>
-                    </div>
-                </div>
-
-                <div class="row gy-4">
-
-                    <div class="col-md-6" data-aos="fade-up">
-                        <div class="card-custom rounded-4 bg-base shadow-effect">
-                            <div class="card-custom-image rounded-4">
-                                <img class="rounded-4" src="./assets/images/project-1.jpeg" alt="">
-                            </div>
-                            <div class="card-custom-content p-4">
-                                <h4>Aplicación de registro de gastos</h4>
-                                <p>Aplicacion implementado en java para ingresar y tener en cuenta los gastos generados durante el mes</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-custom rounded-4 bg-base shadow-effect">
-                            <div class="card-custom-image rounded-4">
-                                <img class="rounded-4" src="./assets/images/project-2.jpg" alt="">
-                            </div>
-                            <div class="card-custom-content p-4">
-                                <h4>Aplicación de lista de tareas</h4>
-                                <p>Proyecto en curso que me permite tener en cuenta las tareas, recordatorios y/o datos para realizar y tener en cuenta</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6" data-aos="fade-up">
-                        <div class="card-custom rounded-4 bg-base shadow-effect">
-                            <div class="card-custom-image rounded-4">
-                                <img class="rounded-4" src="./assets/images/project-3.png" alt="">
-                            </div>
-                            <div class="card-custom-content p-4">
-                                <h4>Generador de gráficos de datos</h4>
-                                <p>Aplicacion con base a python, que genera graficos a partir de datos de entrada. Implemntado con pandas y Matplotlib </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-custom rounded-4 bg-base shadow-effect">
-                            <div class="card-custom-image rounded-4">
-                                <img class="rounded-4" src="./assets/images/project-4.png" alt="">
-                            </div>
-                            <div class="card-custom-content p-4">
-                                <h4>Futuro proyecto</h4>
-                                <p>Este espacio es para el proximo proyecto en elaboracion</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- //pro -->
-
-        <!-- me -->
-        <section id="me" class="full-height px-lg-5">
-            <div class="container">
-
-                <div class="row pb-4" data-aos="fade-up">
-                    <div class="col-lg-8">
-                        <h6 class="text-brand">SOBRE MI</h6>
-                        <h1>Conoceme</h1>
-                    </div>
-                </div>
-
-                <div class="row gy-5">
-                    <div class="col-lg-6">
-
-                        <h3 class="mb-4" data-aos="fade-up" data-aos-delay="300">Experiencias y educacion</h3>
-                        <div class="row gy-4">
-
-                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
-                                <div class="bg-base p-4 rounded-4 shadow-effect">
-                                    <h4>Pregrado Ingenieria de Sistemas </h4>
-                                    <p class="text-brand mb-2">Universidad de los andes (2021 - 2023)</p>
-                                    <p class="mb-0">Realzando mi pregrado en una de las mejores universidades de latino America</p>
-                                </div>
-                            </div>
-
-                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
-                                <div class="bg-base p-4 rounded-4 shadow-effect">
-                                    <h4>Acompañante de materia</h4>
-                                    <p class="mb-0">Monitor de estructura de datos y algoritmos</p>
-                                </div>
-                            </div>
-
-                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
-                                <div class="bg-base p-4 rounded-4 shadow-effect">
-                                    <h4>Curso SQL y manejo de base de datos</h4>
-                                    <p class="mb-0">Debio a mi necesidad de siempre estar aprendiendo realice un curso avanzado de SQL</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-6">
-
-                        <h3 class="mb-4" data-aos="fade-up" data-aos-delay="300">Como soy?</h3>
-                        <div class="row gy-4">
-
-                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
-                                <div class="bg-base p-4 rounded-4 shadow-effect">
-                                    <h4>Trabajor</h4>
-                                    <p class="text-brand mb-2"></p>
-                                    <p class="mb-0">Soy una persona que le motiva a trabajar mas alla de las cosas</p>
-                                </div>
-                            </div>
-
-                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
-                                <div class="bg-base p-4 rounded-4 shadow-effect">
-                                    <h4>Equipos</h4>
-                                    <p class="mb-0">Me acoplo facilmente a los equipos a los cuales pertenecezco, intentando formar un ambiente ameno</p>
-                                </div>
-                            </div>
-
-                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
-                                <div class="bg-base p-4 rounded-4 shadow-effect">
-                                    <h4>Adaptabilidad</h4>
-                                    <p class="mb-0">Se me es facil adaptarme a herramientas y framepros  o temas desconocidos, los cuales sean requeridos</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-        <!-- //me -->
-
-
-        <!-- contacto -->
-        <section id="contact" class="full-height px-lg-5">
-            <div class="container">
-
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-8 pb-4" data-aos="fade-up">
-                        <h6 class="text-brand">CONTACTO</h6>
-                        <h1>Contactame!
-                        </h1>
-                    </div>
-
-                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
-                        <form action="#" class="row g-lg-3 gy-3">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="Ingrese nombre">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="email" class="form-control" placeholder="Ingrese email">
-                            </div>
-                            <div class="form-group col-12">
-                                <input type="text" class="form-control" placeholder="Ingrese tema">
-                            </div>
-                            <div class="form-group col-12">
-                                <textarea name="" rows="4" class="form-control" placeholder="Ingrese mensaje"></textarea>
-                            </div>
-                            <div class="form-group col-12 d-grid">
-                                <button type="submit" class="btn btn-brand">Contactame</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-
-            </div>
-        </section>
-        <!-- //contacto -->
-
-        <!-- pie -->
-        <footer class="py-5 px-lg-5">
-            <div class="container">
-                <div class="row gy-4 justify-content-between">
-                    <div class="col-auto">
-                        <p class="mb-0">Diseñado por <a href="#" class="fw-bold">Alejanddro cataño</a></p>
-                    </div>
-                    <div class="col-auto">
-                        <div class="social-icons">
-                            <a href="#"><i class="lab la-twitter"></i></a>
-                            <a href="#"><i class="lab la-instagram"></i></a>
-                            <a href="#"><i class="lab la-dribbble"></i></a>
-                            <a href="#"><i class="lab la-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- //piew -->
-
+<body>
+<header class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="spot" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div>
+      <h1 class="reveal">Alejandro Cataño Cardona</h1>
+      <p class="role reveal" aria-label="Full-stack software engineer"><span aria-hidden="true"><span class="typed" id="typed">Full-stack software engineer</span><span class="caret"></span></span></p>
+      <p class="intro reveal">Based in Bogotá, Colombia. I build and integrate business systems. At CENET I own features on an electronic invoicing platform: a C# .NET Excel add-in and a Google Sheets extension on the same REST API, from technical design through QA and reviewed pull requests. I also build workflow automation and WhatsApp agents that run on infrastructure I host myself.</p>
+      <ul class="links reveal">
+        <li><a href="mailto:catano.a.c2002@gmail.com">catano.a.c2002@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/alejandro-cata%C3%B1o-aa24b4220/">LinkedIn</a></li>
+        <li><a href="https://github.com/alejandroc02">GitHub (university projects)</a></li>
+        <li><a href="https://github.com/Alejandroca08">Personal GitHub</a></li>
+      </ul>
     </div>
-    <!-- //fin CONTENT WRAPPER -->
+  </div>
+</header>
 
+<main>
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
 
+    <div class="entry sr">
+      <div class="when">Jun 2024 – Present</div>
+      <div>
+        <h3>Full-Stack Software Developer (Contractor)</h3>
+        <p class="where">CENET S.A., Bogotá. Electronic invoicing platform for the Spanish market.</p>
+        <ul class="work">
+          <li>Own end-to-end features on FacturasApp, a production Excel add-in (C# .NET, VSTO) integrated with the company's REST invoicing API, with pull requests reviewed by the core team in Azure DevOps.</li>
+          <li>Implemented Spain's invoice tax rules as a validation engine (4 tax types × regimes × operation qualifications × exemptions, surcharges and withholdings) and shipped multi-tax-type invoice lines across releases 5.70 to 5.75.</li>
+          <li>Fixed null-reference exceptions and schema mismatches, resolved QA findings, and documented an unreported defect in which a regime and exemption combination left products unsaved.</li>
+          <li>Built a Google Sheets extension (Apps Script) that generates invoices from a spreadsheet against the same API.</li>
+          <li>Integrated and validated the platform's Model Context Protocol (MCP) server for AI agents: tested SSE and Streamable HTTP transports, documented tool schemas, and reproduced backend defects for the backend team.</li>
+          <li>Built a WhatsApp invoice-upload bot on n8n and Supabase (PostgreSQL), backed by MCP, with company-document verification and multiple companies per phone number.</li>
+        </ul>
+      </div>
+    </div>
 
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/aos.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <div class="entry sr">
+      <div class="when">Jan 2026 – Jul 2026</div>
+      <div>
+        <h3>Data Intern, People Services / Employee Lifecycle</h3>
+        <p class="where">Sanofi, Bogotá</p>
+        <ul class="work">
+          <li>Built the central hiring-pipeline tracker (Talent Acquisition to Employee Lifecycle to Payroll) as a SharePoint List data model with handoff and discrepancy logs, plus Power Automate validation and discrepancy-report flows.</li>
+          <li>Built a Power Query cross-reference over Workday Brazil exports that reduced 426 records to 129 actionable ones, with automated notifications.</li>
+          <li>Migrated an onboarding flow to a Power Apps canvas app on SharePoint with validation and notifications.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry sr">
+      <div class="when">2024 – Present</div>
+      <div>
+        <h3>Freelance Software Engineer / Automation Consultant</h3>
+        <p class="where">Independent</p>
+        <ul class="work">
+          <li>Designed, deployed and operate a WhatsApp reservation agent for a school (n8n, Evolution API, Supabase/PostgreSQL and an LLM), integrated with Google Calendar and a per-event pricing engine; delivered from contract to user documentation.</li>
+          <li>Self-host the production stack on a Linux VPS with Docker Swarm, Traefik (reverse proxy, TLS), Portainer, n8n, Supabase and MinIO.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Academic projects</h2>
+    <p class="note">Universidad de los Andes</p>
+    <div class="projects">
+      <div class="project card sr">
+        <h3>Layered Java web application</h3>
+        <p class="stack">Java, Spring Boot, JPA</p>
+        <p>REST backend with a service layer, ORM persistence with entity relationships, JWT authentication, caching, and unit and API tests under CI.</p>
+      </div>
+      <div class="project card sr">
+        <h3>TypeScript full-stack web application</h3>
+        <p class="stack">TypeScript, Nest.js, TypeORM, React</p>
+        <p>Same layered architecture on a Node.js stack, with JWT authentication, caching and tests under CI.</p>
+      </div>
+      <div class="project card sr">
+        <h3>Fake-news detection</h3>
+        <p class="stack">Python, Pandas, scikit-learn</p>
+        <p>Text-analytics pipeline comparing three classifiers on precision, recall and F1, exposed through a REST API with prediction and retraining endpoints.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <dl class="skills sr">
+      <dt>Languages</dt><dd>C#, Java, TypeScript / JavaScript, SQL, Python</dd>
+      <dt>Back-end</dt><dd>.NET (VSTO), Spring Boot, JPA, Nest.js, TypeORM, REST API integration, JWT</dd>
+      <dt>Front-end</dt><dd>React, HTML / CSS, Google Apps Script</dd>
+      <dt>Data</dt><dd>PostgreSQL, Supabase, Power Query</dd>
+      <dt>Automation and AI</dt><dd>n8n, Model Context Protocol (MCP), WhatsApp (Evolution API), LLM APIs, Power Automate, Power Apps, SharePoint</dd>
+      <dt>Infrastructure</dt><dd>Docker / Docker Swarm, Traefik, Portainer, Linux, Git, Azure DevOps</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <ul class="plain sr">
+      <li><strong>B.Sc. in Systems and Computing Engineering</strong>, Universidad de los Andes, Bogotá</li>
+      <li><strong>ICPC</strong>: represented Universidad de los Andes at the International Collegiate Programming Contest in 2022 and 2023</li>
+      <li><strong>Teaching assistant</strong>, Data Structures and Algorithms, Universidad de los Andes</li>
+      <li><strong>Languages</strong>: English (C1), Spanish (native)</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Alejandro Cataño Cardona</div>
+</footer>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // scroll reveal
+  var els=document.querySelectorAll('.sr');
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(e){io.observe(e)});}
+  if(reduce) return;
+  // typing effect
+  var words=['Full-stack software engineer','C# .NET, Java and TypeScript','REST APIs and integrations','Workflow automation'];
+  var t=document.getElementById('typed'),wi=0,ci=words[0].length,del=true;
+  setTimeout(function tick(){
+    var w=words[wi];
+    if(del){ci--; if(ci<=0){del=false;wi=(wi+1)%words.length;}}
+    else{ci++; if(ci>=words[wi].length){del=true; t.textContent=words[wi]; return setTimeout(tick,2600);}}
+    t.textContent=words[wi].slice(0,Math.max(ci,0));
+    setTimeout(tick,del?35:70);
+  },3200);
+  // cursor spotlight
+  var hero=document.querySelector('.hero');
+  if(matchMedia('(pointer:fine)').matches){hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px');});}
+  // particle network
+  var c=document.getElementById('net'),x=c.getContext('2d'),P=[],W,H,dpr=Math.min(devicePixelRatio||1,2),visible=true;
+  function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.round(Math.min(70,W*H/16000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25});}
+  function frame(){
+    if(visible){x.clearRect(0,0,W,H);
+      for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+        for(var j=i+1;j<P.length;j++){var q=P[j],dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;if(d<16900){x.strokeStyle='rgba(141,187,255,'+(0.16*(1-d/16900))+')';x.lineWidth=1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke();}}
+        x.fillStyle='rgba(141,187,255,.45)';x.beginPath();x.arc(p.x,p.y,1.4,0,6.283);x.fill();}}
+    requestAnimationFrame(frame);}
+  new IntersectionObserver(function(es){visible=es[0].isIntersecting}).observe(hero);
+  addEventListener('resize',size);size();frame();
+})();
+</script>
 </body>
-
 </html>
